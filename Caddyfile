@@ -1,0 +1,3 @@
+${LOCALHOST_PROXY_PORTS} {
+    reverse_proxy host.docker.internal:{port}
+}
