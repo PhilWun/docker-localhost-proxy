@@ -23,3 +23,22 @@ Then let the `start_proxy.sh` script run before starting your application e.g.:
 ```Dockerfile
 CMD ./start_proxy.sh && ./start_app.sh
 ```
+
+## How to configure it
+
+To choose which ports the proxy will redirect you have to set the environment variable `LOCALHOST_PROXY_PORTS`.
+For a single port set it to e.g. `:1234`, for multiple ports separate them with a space e.g. `:1234 :2345 :3456`.
+The `:` in front of the ports is important.
+
+Example of a docker compose file that uses an image with proxy:
+```yml
+service:
+    container-with-proxy:
+        image: image-with-proxy
+        environment:
+            LOCALHOST_PROXY_PORTS: ":1234"
+    container-with-proxy-multi-port:
+        image: image-with-proxy
+        environment:
+            LOCALHOST_PROXY_PORTS: ":1234 :2345 :3456"
+```
