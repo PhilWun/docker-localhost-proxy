@@ -20,6 +20,8 @@ if [[ -n "${LOCALHOST_PROXY_PORTS}" ]]; then
 
     echo "content of Caddyfile: $(cat Caddyfile)"
 
+    export XDG_CONFIG_HOME="$(pwd)"
+
     caddy start
 else
     echo "env var LOCALHOST_PROXY_PORTS is not set"
