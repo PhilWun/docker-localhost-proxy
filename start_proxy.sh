@@ -2,7 +2,7 @@
 
 echo "pwd: $(pwd)"
 
-if [[ -e "Caddyfile"]]; then
+if [[ -e "Caddyfile" ]]; then
     echo "content of Caddyfile: $(cat Caddyfile)"
 else
     echo "Caddyfile does not exists."
