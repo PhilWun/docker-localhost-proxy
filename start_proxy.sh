@@ -10,5 +10,5 @@ if [[ -n "${LOCALHOST_PROXY_PORTS}" ]]; then
 
     caddy start
 else
-    echo "INFO: env var LOCALHOST_PROXY_PORTS not set, Caddy will not be started"
+    echo "INFO: env var LOCALHOST_PROXY_PORTS not set, localhost proxy will not be started"
 fi
