@@ -13,7 +13,10 @@ if [[ -n "${LOCALHOST_PROXY_PORTS}" ]]; then
     echo "env var LOCALHOST_PROXY_PORTS is set to ${LOCALHOST_PROXY_PORTS}"
 
     # configure Caddy
-    envsubst < Caddyfile | tee Caddyfile # replace placeholders with the values of the respective environment variables
+    # replace placeholders with the values of the respective environment variables
+    # this needs to be stored to a different file, otherwise a racecondition might occur
+    envsubst < Caddyfile > Caddyfile.tmp
+    mv Caddyfile.tmp Caddyfile
 
     echo "content of Caddyfile: $(cat Caddyfile)"
 
